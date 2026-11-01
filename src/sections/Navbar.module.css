@@ -1,0 +1,183 @@
+/* ---------- Header bar ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-height);
+  background: rgb(255 255 255 / 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+  transition: box-shadow var(--transition);
+}
+
+.scrolled {
+  box-shadow: var(--shadow-sm);
+}
+
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+/* ---------- Hamburger button (phones) ---------- */
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;  /* 44px: a comfortable touch target */
+  height: 2.75rem;
+}
+
+/* One span draws the middle line; ::before and ::after draw top and bottom */
+.bar,
+.bar::before,
+.bar::after {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  transition: transform var(--transition), background var(--transition);
+}
+
+.bar {
+  position: relative;
+}
+
+.bar::before,
+.bar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.bar::before { top: -7px; }
+.bar::after  { top: 7px; }
+
+/* When the menu is open, the three lines become an X */
+.toggle[aria-expanded='true'] .bar {
+  background: transparent;
+}
+.toggle[aria-expanded='true'] .bar::before {
+  transform: translateY(7px) rotate(45deg);
+}
+.toggle[aria-expanded='true'] .bar::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---------- Dropdown panel (phones) ---------- */
+.nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: var(--space-4) var(--container-pad) var(--space-6);
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+
+  /* Hidden state. visibility:hidden also removes links from keyboard Tab order */
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transition:
+    opacity var(--transition),
+    transform var(--transition),
+    visibility var(--transition);
+}
+
+.open {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Links ---------- */
+.link {
+  position: relative;
+  display: block;
+  padding: var(--space-3) 0;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  transition: color var(--transition);
+}
+
+.link:hover,
+.active {
+  color: var(--color-primary);
+}
+
+/* Animated underline: hidden until hover or active */
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0.4rem;
+  width: 2rem;
+  height: 2px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.link:hover::after,
+.active::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Tablets and larger: show links in a row ---------- */
+@media (min-width: 768px) {
+  .toggle {
+    display: none;
+  }
+
+  .nav {
+    position: static;
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+
+  .list {
+    flex-direction: row;
+    gap: var(--space-6);
+  }
+
+  .link {
+    padding: var(--space-2) 0;
+  }
+
+  .link::after {
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .list {
+    gap: var(--space-8);
+  }
+}
