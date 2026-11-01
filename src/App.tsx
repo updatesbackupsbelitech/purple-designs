@@ -1,23 +1,10 @@
+import BackToTop from './components/BackToTop'
+import Section from './components/Section'
 import Navbar from './sections/Navbar'
 
-interface PlaceholderProps {
-  id: string
-  title: string
-  background: string
-}
-
-// TEMPORARY: lets us test the Navbar. Removed section by section from Step 6.
-function Placeholder({ id, title, background }: PlaceholderProps) {
-  return (
-    <section
-      id={id}
-      style={{ minHeight: '100vh', paddingBlock: 'var(--space-section)', background }}
-    >
-      <div className="container">
-        <h2>{title}</h2>
-      </div>
-    </section>
-  )
+// TEMPORARY: gives each section some height so we can test scrolling.
+function TempSpace({ note }: { note: string }) {
+  return <p style={{ minHeight: '60vh' }}>{note}</p>
 }
 
 function App() {
@@ -28,12 +15,35 @@ function App() {
       </a>
       <Navbar />
       <main id="main">
-        <Placeholder id="home" title="Home (Hero goes here)" background="var(--color-lilac)" />
-        <Placeholder id="about" title="About" background="var(--color-white)" />
-        <Placeholder id="services" title="Services" background="var(--color-beige)" />
-        <Placeholder id="projects" title="Projects" background="var(--color-white)" />
-        <Placeholder id="contact" title="Contact" background="var(--color-beige)" />
+        {/* TEMPORARY: replaced by the real Hero in Step 6 */}
+        <section
+          id="home"
+          aria-label="Home"
+          style={{
+            minHeight: '100vh',
+            paddingBlock: 'var(--space-section)',
+            background: 'var(--color-lilac)',
+          }}
+        >
+          <div className="container">
+            <h1>Purple Designs Ltd.</h1>
+          </div>
+        </section>
+
+        <Section id="about" eyebrow="About Us" title="About" tone="white">
+          <TempSpace note="About content arrives in Step 7." />
+        </Section>
+        <Section id="services" eyebrow="What We Do" title="Services" tone="beige">
+          <TempSpace note="Services content arrives in Step 8." />
+        </Section>
+        <Section id="projects" eyebrow="Our Work" title="Projects" tone="white">
+          <TempSpace note="Projects content arrives in Step 9." />
+        </Section>
+        <Section id="contact" eyebrow="Get In Touch" title="Contact" tone="beige">
+          <TempSpace note="Contact content arrives in Step 10." />
+        </Section>
       </main>
+      <BackToTop />
     </>
   )
 }

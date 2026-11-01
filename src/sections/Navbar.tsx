@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { navLinks } from '../data/navigation'
 import { siteInfo } from '../data/siteInfo'
 import { useActiveSection } from '../hooks/useActiveSection'
+import { useScrolledPast } from '../hooks/useScrolledPast'
 import styles from './Navbar.module.css'
 
 // Built once, outside the component, so the list never changes between renders
@@ -9,16 +10,8 @@ const sectionIds = navLinks.map((link) => link.id)
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const scrolled = useScrolledPast(10)
   const activeId = useActiveSection(sectionIds)
-
-  // Add a shadow once the page has been scrolled a little
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   // Close the mobile menu with the Escape key
   useEffect(() => {

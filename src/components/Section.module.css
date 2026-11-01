@@ -1,0 +1,31 @@
+.section {
+  padding-block: var(--space-section);
+}
+
+.white { background: var(--color-white); }
+.beige { background: var(--color-beige); }
+.lilac { background: var(--color-lilac); }
+
+.header {
+  margin-bottom: var(--space-12);
+}
+
+/* Small uppercase label with a gold line (the line is decoration only) */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 2rem;
+  height: 2px;
+  background: var(--color-gold);
+}
