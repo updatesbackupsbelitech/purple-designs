@@ -1,5 +1,6 @@
 import BackToTop from './components/BackToTop'
 import Section from './components/Section'
+import Hero from './sections/Hero'
 import Navbar from './sections/Navbar'
 
 // TEMPORARY: gives each section some height so we can test scrolling.
@@ -15,20 +16,7 @@ function App() {
       </a>
       <Navbar />
       <main id="main">
-        {/* TEMPORARY: replaced by the real Hero in Step 6 */}
-        <section
-          id="home"
-          aria-label="Home"
-          style={{
-            minHeight: '100vh',
-            paddingBlock: 'var(--space-section)',
-            background: 'var(--color-lilac)',
-          }}
-        >
-          <div className="container">
-            <h1>Purple Designs Ltd.</h1>
-          </div>
-        </section>
+        <Hero />
 
         <Section id="about" eyebrow="About Us" title="About" tone="white">
           <TempSpace note="About content arrives in Step 7." />

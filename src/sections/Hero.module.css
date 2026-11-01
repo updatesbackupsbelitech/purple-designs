@@ -1,0 +1,140 @@
+/* ---------- The hero box ---------- */
+.hero {
+  position: relative;
+  isolation: isolate; /* keeps our z-index layers inside this section */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  min-height: max(34rem, calc(100svh - var(--header-height)));
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  color: var(--color-white);
+}
+
+/* The keyboard focus ring is purple by default, which is invisible on purple.
+   Inside the hero it becomes white. */
+.hero :focus-visible {
+  outline-color: var(--color-white);
+}
+
+/* ---------- Background layer (moved by the parallax hook) ---------- */
+/* It starts 40% above the hero, so there is never a gap when it moves down */
+.layer {
+  position: absolute;
+  top: -40%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -2;
+  will-change: transform;
+}
+
+/* OPTION B: blueprint lines (recommended) */
+.blueprint {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.09) 1px, transparent 1px),
+    linear-gradient(rgb(255 255 255 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+  background-size:
+    120px 120px,
+    120px 120px,
+    24px 24px,
+    24px 24px;
+  /* Lines fade out towards the lower-left, behind the text */
+  -webkit-mask-image: linear-gradient(to top right, transparent 10%, #000 90%);
+  mask-image: linear-gradient(to top right, transparent 10%, #000 90%);
+}
+
+/* OPTION A: photo with a purple overlay */
+.photo {
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, rgb(42 15 61 / 0.92) 0%, rgb(75 29 107 / 0.72) 100%);
+}
+
+/* ---------- Content ---------- */
+.content {
+  padding-block: var(--space-16);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-lilac);
+}
+
+/* Gold line: decoration only, so no text-contrast rule applies */
+.eyebrow::before {
+  content: '';
+  flex: none;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--color-gold);
+}
+
+.title {
+  max-width: 14ch;
+  font-size: var(--text-hero);
+  line-height: 1.05;
+  color: var(--color-white);
+}
+
+.text {
+  max-width: 36rem;
+  margin-top: var(--space-6);
+  font-size: var(--text-lg);
+  color: var(--color-lilac);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-8);
+  max-width: 40rem;
+  margin-top: var(--space-16);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgb(255 255 255 / 0.25);
+  font-size: var(--text-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-lilac);
+}
+
+/* ---------- Gentle entrance when the page loads ---------- */
+.content > * {
+  animation: rise 800ms ease both;
+}
+.content > :nth-child(2) { animation-delay: 100ms; }
+.content > :nth-child(3) { animation-delay: 200ms; }
+.content > :nth-child(4) { animation-delay: 300ms; }
+.content > :nth-child(5) { animation-delay: 400ms; }
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
