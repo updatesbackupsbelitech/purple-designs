@@ -1,5 +1,6 @@
 import BackToTop from './components/BackToTop'
 import Section from './components/Section'
+import About from './sections/About'
 import Hero from './sections/Hero'
 import Navbar from './sections/Navbar'
 
@@ -17,10 +18,8 @@ function App() {
       <Navbar />
       <main id="main">
         <Hero />
+        <About />
 
-        <Section id="about" eyebrow="About Us" title="About" tone="white">
-          <TempSpace note="About content arrives in Step 7." />
-        </Section>
         <Section id="services" eyebrow="What We Do" title="Services" tone="beige">
           <TempSpace note="Services content arrives in Step 8." />
         </Section>

@@ -1,0 +1,225 @@
+/* ---------- Photo and text, side by side on desktop ---------- */
+.intro {
+  display: grid;
+  gap: var(--space-12);
+}
+
+@media (min-width: 1024px) {
+  .intro {
+    grid-template-columns: 5fr 6fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+}
+
+/* ---------- Photo column ---------- */
+.media {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 30rem;
+  margin: 0 auto var(--space-8);
+}
+
+/* Outline frame, shifted down and left behind the photo */
+.media::before {
+  content: '';
+  position: absolute;
+  inset: var(--space-4) var(--space-4) calc(var(--space-4) * -1) calc(var(--space-4) * -1);
+  z-index: -1;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius);
+}
+
+@media (min-width: 1024px) {
+  .media {
+    max-width: none;
+    margin-inline: 0;
+  }
+}
+
+/* The "8 years" badge on the photo's lower-right corner */
+.stat {
+  position: absolute;
+  right: var(--space-4);
+  bottom: calc(var(--space-6) * -1);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 3px solid var(--color-gold); /* decoration only */
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+
+.statNumber {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.statLabel {
+  max-width: 7rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .stat {
+    right: calc(var(--space-6) * -1);
+  }
+}
+
+/* ---------- Text column ---------- */
+.lead {
+  font-size: var(--text-lg);
+}
+
+.founder {
+  margin-top: var(--space-8);
+  padding-left: var(--space-6);
+  border-left: 3px solid var(--color-gold); /* decoration only */
+}
+
+.founder p + p {
+  margin-top: var(--space-4);
+}
+
+.founder .founderLabel {
+  margin-bottom: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+/* ---------- Vision and Mission ---------- */
+.statements {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-section);
+}
+
+@media (min-width: 768px) {
+  .statements {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.statement {
+  padding: var(--space-8);
+  border-radius: var(--radius);
+}
+
+.statement h3 {
+  margin-bottom: var(--space-4);
+}
+
+/* Short gold line above each heading (decoration only) */
+.statement h3::before {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  margin-bottom: var(--space-4);
+  background: var(--color-gold);
+}
+
+.vision {
+  background: var(--color-primary);
+  color: var(--color-lilac);
+}
+
+.vision h3 {
+  color: var(--color-white);
+}
+
+.mission {
+  background: var(--color-lilac);
+  color: var(--color-ink);
+}
+
+/* ---------- Core values ---------- */
+.values {
+  margin-top: var(--space-section);
+}
+
+.valuesTitle {
+  margin-bottom: var(--space-8);
+}
+
+.valueList {
+  display: grid;
+  gap: var(--space-6);
+}
+
+/* Tablet: 2 columns, and the last card spans the full row */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .valueList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .value:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Desktop: 3 cards on the first row, 2 wider cards on the second */
+@media (min-width: 1024px) {
+  .valueList {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .value {
+    grid-column: span 2;
+  }
+
+  .value:nth-child(n + 4) {
+    grid-column: span 3;
+  }
+}
+
+.value {
+  padding: var(--space-8) var(--space-6);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-gold); /* decoration only */
+  border-radius: var(--radius);
+  background: var(--color-beige);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.value:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.valueNumber {
+  display: block;
+  margin-bottom: var(--space-3);
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-muted);
+}
+
+.valueTitle {
+  margin-bottom: var(--space-3);
+  font-size: var(--text-xl);
+}
