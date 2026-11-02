@@ -3,7 +3,7 @@ import styles from './Button.module.css'
 
 interface ButtonProps {
   href: string
-  variant?: 'solid' | 'light' | 'outlineLight'
+  variant?: 'solid' | 'outline' | 'light' | 'outlineLight'
   children: ReactNode
 }
 
