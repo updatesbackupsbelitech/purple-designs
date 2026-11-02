@@ -12,8 +12,8 @@ export const about = {
   // PLACEHOLDER photo. To use a real one, set src to '/images/about.webp'
   // after saving the file in public/images/.
   image: {
-    src: '',
-    alt: 'PLACEHOLDER: describe the real photo here, for example "A bright living room designed by Purple Designs Ltd."',
+    src: '/images/about.webp',
+    alt: '"A bright living room designed by Purple Designs Ltd."',
     width: 1200,
     height: 1500,
   },
