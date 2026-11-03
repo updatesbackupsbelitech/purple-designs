@@ -1,3 +1,14 @@
+/* Inside cards: the card supplies the corners and shadow */
+.flat {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Long file names wrap instead of overflowing the placeholder */
+.file {
+  overflow-wrap: anywhere;
+}
+
 .frame {
   position: relative;
   overflow: hidden;

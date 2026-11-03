@@ -1,0 +1,50 @@
+/* Phones: one column */
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+/* Core cards grow when opened, so only the opened card gets taller */
+.core {
+  align-items: start;
+}
+
+/* Extra cards are all the same height in each row */
+.extra {
+  align-items: stretch;
+}
+
+.groupTitle {
+  margin-top: var(--space-section);
+  margin-bottom: var(--space-8);
+}
+
+/* Tablets: two columns */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets only: the third core card sits centred on its own row */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .core > li:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - var(--space-3));
+  }
+}
+
+/* Laptops: three core cards in a row */
+@media (min-width: 1024px) {
+  .core {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Wide screens: four extra cards in a row */
+@media (min-width: 1200px) {
+  .extra {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

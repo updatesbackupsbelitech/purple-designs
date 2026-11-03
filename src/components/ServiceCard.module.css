@@ -1,0 +1,119 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--space-6);
+}
+
+/* Takes the free space, which pushes the footer to the bottom of every card */
+.content {
+  flex: 1;
+}
+
+.title {
+  margin-bottom: var(--space-3);
+  font-size: var(--text-xl);
+}
+
+/* Short gold line above the title (decoration only) */
+.title::before {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  margin-bottom: var(--space-4);
+  background: var(--color-gold);
+}
+
+/* ---------- The "Read more" panel ---------- */
+/* A grid row that grows from 0fr to 1fr is a smooth height animation */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden; /* also hides the text from screen readers and the Tab key */
+  transition:
+    grid-template-rows 300ms ease,
+    visibility 300ms;
+}
+
+.panelOpen {
+  grid-template-rows: 1fr;
+  visibility: visible;
+}
+
+.panelInner {
+  overflow: hidden;
+}
+
+.panelInner p {
+  padding-top: var(--space-4);
+}
+
+/* ---------- Footer: Read more + Enquire ---------- */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-6);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.toggle,
+.enquire {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem; /* comfortable touch target */
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.toggle {
+  color: var(--color-primary);
+}
+
+.toggle:hover {
+  color: var(--color-primary-dark);
+}
+
+.chevron {
+  transition: transform var(--transition);
+}
+
+.toggle[aria-expanded='true'] .chevron {
+  transform: rotate(180deg);
+}
+
+.enquire {
+  margin-left: auto;
+  color: var(--color-muted);
+  transition: color var(--transition);
+}
+
+.enquire:hover {
+  color: var(--color-primary);
+}

@@ -3,6 +3,7 @@ import Section from './components/Section'
 import About from './sections/About'
 import Hero from './sections/Hero'
 import Navbar from './sections/Navbar'
+import Services from './sections/Services'
 
 // TEMPORARY: gives each section some height so we can test scrolling.
 function TempSpace({ note }: { note: string }) {
@@ -19,10 +20,8 @@ function App() {
       <main id="main">
         <Hero />
         <About />
+        <Services />
 
-        <Section id="services" eyebrow="What We Do" title="Services" tone="beige">
-          <TempSpace note="Services content arrives in Step 8." />
-        </Section>
         <Section id="projects" eyebrow="Our Work" title="Projects" tone="white">
           <TempSpace note="Projects content arrives in Step 9." />
         </Section>
