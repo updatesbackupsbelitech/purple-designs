@@ -53,21 +53,21 @@ export const extraServices: Service[] = [
     title: 'Building Materials & Sand',
     intro:
       'Supply of building materials and sand for your construction project. Contact us to ask about what is available.', // DRAFT
-    imageId: '', // PLACEHOLDER
+    imageId: 'Purple_Designs_GH_Building_Materials_Ad.png', // PLACEHOLDER
     imageAlt: 'PLACEHOLDER: describe the real photo for this service.',
   },
   {
     id: '3d-animation',
     title: '3D Animation',
     intro: 'Realistic 3D views and animations that let you see your design before it is built.', // DRAFT (from your old site)
-    imageId: '', // PLACEHOLDER
+    imageId: 'Purple_Designs_GH_3D_Animation_Showcase.png', // PLACEHOLDER
     imageAlt: 'PLACEHOLDER: describe the real photo for this service.',
   },
   {
     id: 'house-planning',
     title: 'House Planning',
     intro: 'Planning the layout of your home so that every room and space works for the way you live.', // DRAFT (from your old site)
-    imageId: '', // PLACEHOLDER
+    imageId: 'Modern_House_Planning_in_Purple_and_Gold.png', // PLACEHOLDER
     imageAlt: 'PLACEHOLDER: describe the real photo for this service.',
   },
   {

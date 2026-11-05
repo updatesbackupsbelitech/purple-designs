@@ -1,0 +1,91 @@
+.intro {
+  /* Pulls the sentence up under the section heading */
+  margin: calc(var(--space-6) * -1) 0 var(--space-8);
+  color: var(--color-muted);
+}
+
+/* ---------- Filter buttons ---------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.filter {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem; /* comfortable touch target */
+  padding: 0 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+}
+
+.filter:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.selected,
+.selected:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* The small number inside each button */
+.count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  background: var(--color-lilac);
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+.selected .count {
+  background: rgb(255 255 255 / 0.2);
+  color: var(--color-white);
+}
+
+/* ---------- Grid ---------- */
+/* minmax(0, 1fr) stops long words from stretching a column */
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+}
+
+.empty {
+  padding-block: var(--space-12);
+  color: var(--color-muted);
+}
