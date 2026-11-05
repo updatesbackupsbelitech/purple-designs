@@ -1,0 +1,81 @@
+.button {
+  /* WhatsApp's own dark green: white on it has about 4:1 contrast, which an icon needs */
+  --wa: #128c7e;
+  --wa-dark: #075e54;
+
+  position: fixed;
+  left: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 90; /* below the navbar (100) */
+  display: inline-flex;
+  align-items: center;
+  height: 3.5rem;
+  border-radius: 999px;
+  background: var(--wa);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+  animation: pulse 2.6s ease-out infinite;
+  transition:
+    background var(--transition),
+    transform var(--transition);
+}
+
+.button:hover {
+  background: var(--wa-dark);
+  transform: translateY(-2px);
+}
+
+.icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+/* The text slides out on hover or keyboard focus (desktop only) */
+.label {
+  max-width: 0;
+  padding-right: 0;
+  overflow: hidden;
+  opacity: 0;
+  white-space: nowrap;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  transition:
+    max-width 300ms ease,
+    padding 300ms ease,
+    opacity 300ms ease;
+}
+
+.button:hover .label,
+.button:focus-visible .label {
+  max-width: 12rem;
+  padding-right: var(--space-6);
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .label {
+    display: none;
+  }
+}
+
+/* A soft green ring that spreads out and fades, repeating */
+@keyframes pulse {
+  0% {
+    box-shadow: var(--shadow-md), 0 0 0 0 rgb(18 140 126 / 0.55);
+  }
+  70%,
+  100% {
+    box-shadow: var(--shadow-md), 0 0 0 1.1rem rgb(18 140 126 / 0);
+  }
+}
+
+@media (min-width: 768px) {
+  .button {
+    left: var(--space-8);
+    bottom: var(--space-8);
+  }
+}

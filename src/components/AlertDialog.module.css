@@ -1,0 +1,109 @@
+.dialog {
+  width: min(92vw, 26rem);
+  padding: 0; /* the inner panel has the padding, so a click on it is not a "backdrop click" */
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--color-white);
+  color: var(--color-ink);
+  box-shadow: 0 25px 70px rgb(26 20 32 / 0.4);
+  animation: pop 380ms cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+
+.dialog::backdrop {
+  background: rgb(26 20 32 / 0.6);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 250ms ease both;
+}
+
+.panel {
+  padding: var(--space-12) var(--space-8) var(--space-8);
+  text-align: center;
+}
+
+/* ---------- The round icon at the top ---------- */
+.badge {
+  display: grid;
+  place-items: center;
+  width: 5rem;
+  height: 5rem;
+  margin: 0 auto var(--space-6);
+  border-radius: 50%;
+  animation: pop 500ms cubic-bezier(0.2, 0.9, 0.3, 1.2) 120ms both;
+}
+
+.success {
+  background: var(--color-lilac);
+  color: var(--color-primary);
+}
+
+.error {
+  background: #fbeaea;
+  color: #9b1c1c; /* dark red: about 8:1 on white */
+}
+
+/* The check mark draws itself */
+.circle,
+.tick {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  animation: draw 600ms ease forwards 250ms;
+}
+
+.tick {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: draw 400ms ease forwards 750ms;
+}
+
+.title {
+  margin-bottom: var(--space-3);
+}
+
+.text {
+  margin: 0 auto var(--space-8);
+}
+
+.button {
+  min-height: 2.75rem;
+  padding: 0.8rem 2rem;
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background var(--transition);
+}
+
+.button:hover {
+  background: var(--color-primary-dark);
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}

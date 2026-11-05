@@ -33,7 +33,7 @@ export const projects: Project[] = [
     title: 'Project Title 01', // PLACEHOLDER
     location: 'Accra',
     year: 2024, // PLACEHOLDER
-    category: 'Architecture Drawings',
+    category: 'Interior Design',
     imageId: 'v1793868862/photo_2026-10-25_11-31-02_twqnox.jpg', // PLACEHOLDER: e.g. 'projects/project-01'
     imageAlt: 'PLACEHOLDER: describe the real photo for this project.',
   },
@@ -41,9 +41,9 @@ export const projects: Project[] = [
     id: 'project-02',
     title: 'Project Title 02', // PLACEHOLDER
     location: 'Takoradi',
-    year: 2024, // PLACEHOLDER
+    year: 2026, // PLACEHOLDER
     category: 'Interior Design',
-    imageId: '',
+    imageId: 'v1793868862/photo_2026-10-25_12-20-51_xzopaj.jpg',
     imageAlt: 'PLACEHOLDER: describe the real photo for this project.',
   },
   {
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     location: 'Accra',
     year: 2025, // PLACEHOLDER
     category: 'Construction',
-    imageId: '',
+    imageId: 'v1793868863/photo_2026-10-25_12-20-57_4_ypkl3e.jpg',
     imageAlt: 'PLACEHOLDER: describe the real photo for this project.',
   },
   {
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     location: 'Takoradi',
     year: 2025, // PLACEHOLDER
     category: 'Architecture Drawings',
-    imageId: '',
+    imageId: 'photo_2026-10-25_12-20-51_xzopaj.jpg',
     imageAlt: 'PLACEHOLDER: describe the real photo for this project.',
   },
   {
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     location: 'Accra',
     year: 2025, // PLACEHOLDER
     category: 'Interior Design',
-    imageId: '',
+    imageId: 'https://res.cloudinary.com/dpfzdm4ze/image/upload/v1793868863/photo_2026-10-25_11-34-57_2_s8tbrl.jpg',
     imageAlt: 'PLACEHOLDER: describe the real photo for this project.',
   },
   {
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     location: 'Takoradi',
     year: 2023, // PLACEHOLDER
     category: 'Construction',
-    imageId: '',
+    imageId: 'https://res.cloudinary.com/dpfzdm4ze/image/upload/v1793868863/photo_2026-10-25_12-20-57_ufspiu.jpg',
     imageAlt: 'PLACEHOLDER: describe the real photo for this project.',
   },
   {
@@ -88,7 +88,7 @@ export const projects: Project[] = [
     location: 'Accra',
     year: 2023, // PLACEHOLDER
     category: 'Architecture Drawings',
-    imageId: '',
+    imageId: 'https://res.cloudinary.com/dpfzdm4ze/image/upload/v1793868864/photo_2026-10-25_12-21-00_zyharf.jpg',
     imageAlt: 'PLACEHOLDER: describe the real photo for this project.',
   },
   {
@@ -97,7 +97,7 @@ export const projects: Project[] = [
     location: 'Takoradi',
     year: 2026, // PLACEHOLDER
     category: 'Interior Design',
-    imageId: '',
+    imageId: 'https://res.cloudinary.com/dpfzdm4ze/image/upload/v1793868863/photo_2026-10-25_11-34-57_3_vllgoo.jpg',
     imageAlt: 'PLACEHOLDER: describe the real photo for this project.',
   },
   {
@@ -106,7 +106,39 @@ export const projects: Project[] = [
     location: 'Accra',
     year: 2026, // PLACEHOLDER
     category: 'Construction',
-    imageId: '',
+    imageId: 'photo_2026-11-02_15-15-46_amxswf.jpg',
     imageAlt: 'PLACEHOLDER: describe the real photo for this project.',
   },
+
+     {
+    id: 'project-09',
+    title: 'Project Title 09', // PLACEHOLDER
+    location: 'Accra',
+    year: 2026, // PLACEHOLDER
+    category: 'Construction',
+    imageId: 'v1793868866/photo_2026-11-02_15-15-38_u3d7gf.jpg',
+    imageAlt: 'PLACEHOLDER: describe the real photo for this project.',
+  },
+
+
+   {
+    id: 'project-09',
+    title: 'Project Title 09', // PLACEHOLDER
+    location: 'Accra',
+    year: 2026, // PLACEHOLDER
+    category: 'Construction',
+    imageId: 'v1793868867/photo_2026-11-02_14-35-43_2_aqnhda.jpg',
+    imageAlt: 'PLACEHOLDER: describe the real photo for this project.',
+  },
+
+{
+    id: 'project-09',
+    title: 'Project Title 09', // PLACEHOLDER
+    location: 'Accra',
+    year: 2026, // PLACEHOLDER
+    category: 'Construction',
+    imageId: 'photo_2026-10-25_12-20-57_2_iivzrf.jpg',
+    imageAlt: 'PLACEHOLDER: describe the real photo for this project.',
+  },
+
 ]

@@ -9,6 +9,9 @@ export const siteInfo = {
   website: 'www.purpledesignsltd.com',
   email: 'info@purpledesignsltd.com',
   phone: '+233-XX-XXX-XXXX', // PLACEHOLDER: replace with the real number
+  // WhatsApp number: digits only, international format, no +, no spaces, no leading 0.
+  whatsapp: '233XXXXXXXXX', // PLACEHOLDER: replace with the real number
+  whatsappMessage: 'Hello Purple Designs Ltd., I would like to make an enquiry.',
   locationLine: 'Accra Lapaz & Takoradi, Queen of Peace, Ghana',
   locations: [
     { city: 'Accra', area: 'Lapaz' },

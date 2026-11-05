@@ -1,0 +1,100 @@
+.block {
+  margin-top: var(--space-16);
+}
+
+.title {
+  margin-bottom: var(--space-2);
+}
+
+.intro {
+  margin-bottom: var(--space-6);
+  color: var(--color-muted);
+}
+
+/* ---------- Office buttons ---------- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: 0 1.25rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+.tab:hover {
+  background: var(--color-lilac);
+}
+
+.selected,
+.selected:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ---------- The large map ---------- */
+.frame {
+  height: clamp(22rem, 58vw, 36rem);
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--color-lilac); /* shows while the map is loading */
+  box-shadow: var(--shadow-md);
+  animation: mapIn 500ms ease both;
+}
+
+.map {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@keyframes mapIn {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Links under the map ---------- */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  margin-top: var(--space-4);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.link:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}

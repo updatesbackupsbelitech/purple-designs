@@ -1,0 +1,4 @@
+# Never allow the mail settings file to be opened from the web
+<FilesMatch "^mail-config(\.example)?\.php$">
+  Require all denied
+</FilesMatch>
